@@ -3,27 +3,25 @@ import Link from "next/link";
 
 const NonDashboardNavbar = () => {
   return (
-    <div>
-      <nav className="nondashboard-navbar">
-        <div className="nondashboard-navbar__container">
-          <div className="nondashboard-navbar__search">
-            <Link href={"/"} className="nondashboard-navbar__brand">
-              EDU-TECH
-            </Link>
-            <div className="flex items-center gap-4">
-              <div className="relative group">
-                <Link
-                  href={"/search"}
-                  className="nondashboard-navbar__search-input"
-                >
-                  <span className="hidden sm:inline">Search Courses</span>
-                  <span className="sm:hidden ">Search</span>
-                </Link>
-                <BookOpen
-                  className="nondashboard-navbar__search-icon"
-                  size={18}
-                ></BookOpen>
-              </div>
+    <nav className="nondashboard-navbar">
+      <div className="nondashboard-navbar__container">
+        <div className="nondashboard-navbar__search">
+          <Link href={"/"} className="nondashboard-navbar__brand">
+            EDU-TECH
+          </Link>
+          <div className="flex items-center gap-4">
+            <div className="relative group">
+              <Link
+                href={"/search"}
+                className="nondashboard-navbar__search-input"
+              >
+                <span className="hidden sm:inline">Search Courses</span>
+                <span className="sm:hidden ">Search</span>
+              </Link>
+              <BookOpen
+                className="nondashboard-navbar__search-icon"
+                size={18}
+              ></BookOpen>
             </div>
           </div>
         </div>
@@ -34,8 +32,8 @@ const NonDashboardNavbar = () => {
           </button>
           {/* SIGN IN BUTTON */}
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 
