@@ -1,5 +1,5 @@
 "use client";
-import CourseCardSearch from "@/app/components/CourseCardSearch";
+import CourseCardSearch from "@/components/CourseCardSearch";
 import { useGetCoursesQuery } from "@/app/state/api";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useCarousel } from "@/hooks/useCarousel";
@@ -50,6 +50,7 @@ const Landing = () => {
   if (isLoading) {
     return <LoadingSkeleton />;
   }
+  if (isError || !courses) return <div>Something Went Wrong!!</div>;
 
   return (
     <motion.div
