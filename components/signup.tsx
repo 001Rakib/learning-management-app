@@ -1,9 +1,9 @@
 "use client";
-import { SignIn, useUser } from "@clerk/nextjs";
+import { SignUp, useUser } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { useSearchParams } from "next/navigation";
 
-const SignInComponent = () => {
+const SignUpComponent = () => {
   const { user } = useUser();
   const searchParams = useSearchParams();
 
@@ -11,9 +11,9 @@ const SignInComponent = () => {
   const courseId = searchParams.get("id");
 
   //first one is for checkout page and second one is for normal sign up page
-  const signUpUrl = isCheckOutPage
-    ? `/checkout?step=1&id=${courseId}&showSignUp=true`
-    : "/signup";
+  const signInUrl = isCheckOutPage
+    ? `/checkout?step=1&id=${courseId}&showSignUp=false`
+    : "/signin";
   //for redirecting from signup page
   const getRedirectUrl = () => {
     if (isCheckOutPage) {
@@ -25,9 +25,8 @@ const SignInComponent = () => {
     }
     return "/user/courses";
   };
-
   return (
-    <SignIn
+    <SignUp
       appearance={{
         baseTheme: dark,
         elements: {
@@ -48,7 +47,7 @@ const SignInComponent = () => {
           footerActionLink: "text-primary-750 hover:text-primary-600",
         },
       }}
-      signUpUrl={signUpUrl}
+      signInUrl={signInUrl}
       forceRedirectUrl={getRedirectUrl()}
       routing="hash"
       afterSignOutUrl={"/"}
@@ -56,4 +55,4 @@ const SignInComponent = () => {
   );
 };
 
-export default SignInComponent;
+export default SignUpComponent;
